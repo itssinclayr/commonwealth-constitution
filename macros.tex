@@ -1,0 +1,71 @@
+% ==========================================================
+% macros.tex -- Constitution numbering system
+%
+% Provides three nested, auto-numbering levels:
+%   \ConstTitle{Name}{label}      -> "Title I -- Name"
+%   \Article{Name}{label}         -> "Article I -- Name"
+%   \ArtSection{Name}{label}      -> "Section 1 -- Name"    (resets per article)
+%
+% Each level uses \refstepcounter (the standard LaTeX mechanism for
+% counter+label binding) rather than manually poking \@currentlabel.
+% An earlier version of this file set \@currentlabel by hand with
+% \def; that silently failed -- every \newlabel entry it wrote came
+% out empty, which only became visible once a citation was actually
+% resolved (forward/undefined refs show "??" regardless, which had
+% been masking the bug). \refstepcounter is what \section, \chapter,
+% etc. use internally, so it's battle-tested against hyperref and
+% every other package that hooks into labels.
+%
+% Citation pattern used in body text (note the literal ", " is now
+% written explicitly in the prose, not hidden inside the label):
+%   Article \ref{lab:art}, \ref{lab:art:sN}
+%   renders as:  Article II, Section 3
+%
+% For a same-article self-reference ("described in Section 4"),
+% just use the section ref alone, with no article ref before it:
+%   described in \ref{lab:art:sN}
+%   renders as:  Section 4
+%
+% NOTE on Article numbering scope: Articles are numbered
+% *continuously across the whole constitution* (Article I ... Article
+% XXXIX), not restarting each Title -- this matches the source
+% document's own numbering. So \ArtSection resets per Article, but
+% \Article itself does NOT reset per Title.
+% ==========================================================
+
+\newcounter{ctitle}
+\renewcommand{\thectitle}{\Roman{ctitle}}
+
+\newcounter{ctarticle}
+\renewcommand{\thectarticle}{\Roman{ctarticle}}
+
+\newcounter{ctsection}[ctarticle]
+\renewcommand{\thectsection}{Section \arabic{ctsection}}
+
+% ---- Title ----
+\newcommand{\ConstTitle}[2]{%
+  \refstepcounter{ctitle}%
+  \part*{Title \thectitle\ -- #1}
+  \addcontentsline{toc}{part}{Title \thectitle: #1}
+  \label{#2}%
+}
+
+% ---- Article ----
+\newcommand{\Article}[2]{%
+  \setcounter{ctsection}{0}%
+  \refstepcounter{ctarticle}%
+  \section*{Article \thectarticle\ -- #1}
+  \addcontentsline{toc}{section}{Article \thectarticle: #1}
+  \label{#2}%
+}
+
+% ---- Section (within an Article) ----
+% A single robust label per section, rendering as bare "Section N".
+% Cross-article citations write the comma explicitly in prose:
+%   Article \ref{art:x}, \ref{art:x:sN}
+\newcommand{\ArtSection}[2]{%
+  \refstepcounter{ctsection}%
+  \subsection*{\thectsection\ -- #1}
+  \addcontentsline{toc}{subsection}{\thectsection}%
+  \label{#2}%
+}

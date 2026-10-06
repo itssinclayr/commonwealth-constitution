@@ -1,0 +1,54 @@
+\documentclass[11pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue,linktoc=all]{hyperref}
+\usepackage[toc,section=section]{glossaries}
+\makeglossaries
+
+\makeatletter
+\renewcommand\toclevel@part{0}
+\makeatother
+
+\input{macros}
+\input{glossary-entries}
+
+\title{A Constitution for the Commonwealth}
+\date{}
+\hypersetup{pdftitle={A Constitution for the Commonwealth}, pdfauthor={}}
+
+\begin{document}
+
+\pagestyle{plain}
+
+\maketitle
+\input{frontmatter}
+\tableofcontents
+
+% ----------------------------------------------------------
+% Document order lives ONLY here. To reorder titles, reorder
+% these \input lines -- every \ref{} in every title file will
+% recompute automatically on the next build.
+% ----------------------------------------------------------
+
+\input{titles/title-01}   % Title I  -- Foundational Values and Inviolable Rights
+\input{titles/title-02}   % Title II  -- Sortition and Governance Design
+\input{titles/title-03}   % Title III -- Governance Structure
+\input{titles/title-04}   % Title IV  -- Accountability Infrastructure
+\input{titles/title-05}   % Title V   -- Executive Function
+\input{titles/title-06}   % Title VI  -- Economic Structure
+\input{titles/title-07}   % Title VII -- External Relations
+\input{titles/title-08}   % Title VIII -- Borders and Membership
+\input{titles/title-09}   % Title IX  -- Internal Security and Justice
+\input{titles/title-10}   % Title X   -- Reparative Justice and Indigenous Sovereignty
+\input{titles/title-11}   % Title XI  -- Amendment, Revision, and Constitutional Survival
+\input{titles/title-12}   % Title XII -- Transitional Provisions
+
+\input{backmatter}
+
+\clearpage
+\printglossary[title=Glossary of Constitutional Bodies]
+
+\end{document}

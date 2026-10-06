@@ -1,0 +1,130 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue,linktoc=all]{hyperref}
+
+% ==========================================================
+% xr-hyper pulls in every \label from the constitution's own
+% main.aux, so every \ref{...} below resolves to whatever Article/
+% Section number that label currently has in the constitution --
+% automatically, even if the constitution is reorganized again
+% later. This document must be compiled from the SAME DIRECTORY
+% as the constitution's main.aux (or the path below adjusted),
+% and the constitution must be compiled at least once first so
+% main.aux exists and is current.
+% ==========================================================
+\usepackage{xr-hyper}
+\externaldocument[const-]{main}
+
+\title{Sortition Legislature: Operational Responsibilities Guide}
+\author{Companion document to \emph{A Constitution for the Commonwealth} -- not part of the constitutional text}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\itshape
+This guide is an operational aid for members of the Sortition Legislature. It has no constitutional force of its own: where anything here appears to conflict with the constitutional text, the constitution controls. Every citation below links to the specific Article and Section that is the actual source of authority.
+\end{quote}
+
+\tableofcontents
+
+\section{How to Use This Guide}
+
+The Legislature's constitutional responsibilities fall into four categories, each with a different operational logic:
+
+\begin{enumerate}
+  \item \textbf{Standing Duties} -- always in force; no trigger or schedule activates them, they simply describe how the Legislature conducts itself at all times.
+  \item \textbf{Cyclical Reviews} -- recur automatically on a fixed calendar, regardless of any external event.
+  \item \textbf{Deadline-Triggered Actions} -- activate only when a specific event occurs (a threshold crossing, a report, a petition), and carry a hard deadline once triggered. \textbf{These are the highest-priority items in this guide}, since missing a constitutional deadline has direct legal consequences (e.g., a provisional prohibition becoming permanent).
+  \item \textbf{Discretionary Powers} -- the Legislature may exercise these at any time, at its own initiative, with no deadline forcing action.
+\end{enumerate}
+
+Within Section~3 (Deadline-Triggered Actions), entries are ordered by deadline length, shortest first, since that is the order in which they would actually compete for the Legislature's attention if several were active simultaneously.
+
+\section{Standing Duties}
+
+These are always in force. They describe the Legislature's ongoing conduct, not a discrete task to complete.
+
+\begin{enumerate}
+  \item \textbf{Follow the structured deliberative process for all significant legislation} -- expert briefings from multiple perspectives, small-group deliberation in randomly assigned groups, full-assembly reporting and cross-group deliberation, minority impact assessment, and final deliberation and decision, in that order. (Article~\ref{const-art:sortition-legislature}, \ref{const-art:sortition-legislature:s-deliberative-process})
+  \item \textbf{Conduct all proceedings with real-time interpretation} in every language spoken by more than one percent of the Commonwealth population, and make official documents and civic materials available in all threshold languages. (Article~\ref{const-art:sortition-legislature}, \ref{const-art:sortition-legislature:s-multilingualism})
+  \item \textbf{Maintain individual conflict-of-interest compliance} -- full financial and relational disclosure before service; no income beyond public salary and civic service premium; no private communication with entities interested in pending decisions; no productive assets beyond personal property. This applies to all governance roles, not only the Legislature. (Article~\ref{const-art:governance-principles}, \ref{const-art:governance-principles:s-conflict-interest-sector})
+  \item \textbf{Observe sector exclusion} -- no member may deliberate on a matter in which they stand to gain or lose materially in a way distinguishable from the general population. This applies to all governance roles, not only the Legislature. (Article~\ref{const-art:governance-principles}, \ref{const-art:governance-principles:s-conflict-interest-sector})
+  \item \textbf{Fund the Material Sufficiency Floor on an ongoing basis} through cooperative surplus contribution rates set at a level the Monetary Authority and Financial Regulatory Body jointly assess as structurally sufficient. (Article~\ref{const-art:finance-money}, \ref{const-art:finance-money:s-cooperative-surplus-contributions})
+\end{enumerate}
+
+\section{Cyclical Reviews}
+
+These recur automatically on a fixed calendar. No external trigger is needed -- the Legislature should track these dates proactively.
+
+\begin{enumerate}
+  \item \textbf{Climate mandate review} -- every five years, with automatic escalation triggers tied to objective scientific metrics. (Article~\ref{const-art:ecological-limits}, \ref{const-art:ecological-limits:s-climate-mandate})
+  \item \textbf{Cooperative surplus contribution rate review} -- every five years, timed alongside the climate mandate review above. (Article~\ref{const-art:finance-money}, \ref{const-art:finance-money:s-cooperative-surplus-contributions})
+  \item \textbf{Essential-sector forward-looking capacity targets and Incentive Escalation Schedules} -- reviewed every five years, alongside the same climate mandate cycle. (Article~\ref{const-art:essential-labor}, \ref{const-art:essential-labor:s-voluntary-service-incentives} and \ref{const-art:essential-labor:s-forward-looking-capacity})
+  \item \textbf{Regulatory Body sector-exclusion thresholds} -- the time period defining a "recently adjudicated" matter, and the threshold for disqualifying outside income, are reviewed annually. (Article~\ref{const-art:regulatory-bodies}, \ref{const-art:regulatory-bodies:s-sector-exclusion})
+\end{enumerate}
+
+\section{Deadline-Triggered Actions}
+
+Each entry below activates only when its trigger occurs. Ordered shortest deadline first.
+
+\begin{enumerate}
+
+  \item \textbf{Trigger: an emergency threshold is confirmed by the Emergency Threshold Verification Body.}
+  \\ \textbf{Deadline: convene within 72 hours}, with a quorum of at least one third of members. The Legislature may authorize specific time-limited actions beyond the pre-approved protocol's scope; these authorizations expire after 30 days unless actively reauthorized. (Article~\ref{const-art:emergency-protocols}, \ref{const-art:emergency-protocols:s-novel-emergencies-three})
+
+  \item \textbf{Trigger: a Legislative Decision Review petition reaches its civic-membership signature threshold (5\%).}
+  \\ \textbf{Deadline: mandatory reconsideration session within 60 days} of threshold confirmation. Reconsideration does not suspend the original decision and does not bind the Legislature to reversal. (Article~\ref{const-art:civic-initiative-infrastructure}, \ref{const-art:civic-initiative-infrastructure:s-constitutional-intervention-types})
+
+  \item \textbf{Trigger: the Monetary Authority issues a structural dependence finding} (allocation substituting for inadequate cooperative surplus contribution rates).
+  \\ \textbf{Deadline: mandatory review session within 60 days} of receiving the report. (Article~\ref{const-art:finance-money}, \ref{const-art:finance-money:s-monetary-authority})
+
+  \item \textbf{Trigger: the Transparency Engine issues an automatic alert} that Material Sufficiency Floor obligations are not structurally fully funded.
+  \\ \textbf{Deadline: mandatory review session within 60 days.} (Article~\ref{const-art:finance-money}, \ref{const-art:finance-money:s-cooperative-surplus-contributions})
+
+  \item \textbf{Trigger: an essential-sector Implementation Council reports a reactive enrollment threshold crossing (workforce pipeline risk).}
+  \\ \textbf{Deadline: mandatory review session within 60 days} to assess and strengthen voluntary incentive mechanisms. (Article~\ref{const-art:essential-labor}, \ref{const-art:essential-labor:s-essential-sector-pipeline})
+
+  \item \textbf{Trigger: an essential-sector Implementation Council reports a forward-looking capacity shortfall} (ten-year horizon), even before any reactive threshold is crossed.
+  \\ \textbf{Deadline: mandatory review session within 60 days} to strengthen incentives, expand training pipeline capacity, or both. (Article~\ref{const-art:essential-labor}, \ref{const-art:essential-labor:s-forward-looking-capacity})
+
+  \item \textbf{Trigger: emergency actions are authorized under the 72-hour emergency session (above).}
+  \\ \textbf{Deadline: full Legislature reconvenes within 30 days} to review all actions taken under the emergency authorization; no extension without this active reauthorization. (Article~\ref{const-art:emergency-protocols}, \ref{const-art:emergency-protocols:s-novel-emergencies-three})
+
+  \item \textbf{Trigger: a Regulatory Commons Body classifies a financial instrument as provisionally prohibited.}
+  \\ \textbf{Deadline: the classification is referred to the Legislature within 30 days} of classification (a duty on the Financial Regulatory Body, not the Legislature); \textbf{the Legislature then has 90 days from referral to act}, or the provisional prohibition becomes permanent automatically. (Article~\ref{const-art:regulatory-bodies}, \ref{const-art:regulatory-bodies:s-financial-regulation})
+
+\end{enumerate}
+
+\section{Discretionary Powers}
+
+The Legislature may exercise these at its own initiative. No deadline compels action, though some are the necessary predicate for other bodies' ability to function.
+
+\subsection{Constitutional and Structural}
+\begin{itemize}
+  \item Amend constitutional provisions outside the Title~\ref{const-title:foundational} foundational principles, by four-fifths supermajority, followed by 60\% national ratification and Constitutional Court review. (Article~\ref{const-art:ordinary-amend})
+  \item Ratify treaties negotiated by the Foreign Relations Council; the Council may negotiate but never conclude a binding agreement without this ratification. (Article~\ref{const-art:foreign-relations}, \ref{const-art:foreign-relations:s-mandate-constraints})
+  \item Add new Civic Initiative Infrastructure intervention types (may not remove the constitutionally established ones). (Article~\ref{const-art:civic-initiative-infrastructure}, \ref{const-art:civic-initiative-infrastructure:s-constitutional-intervention-types})
+  \item Create new Implementation Councils by supermajority vote when new governance domains emerge; dissolve existing ones by supermajority plus Constitutional Court confirmation that no Material Sufficiency Floor function is left unimplemented. (Article~\ref{const-art:implementation-councils}, \ref{const-art:implementation-councils:s-creation-dissolution})
+  \item Create additional Regulatory Commons Bodies by supermajority vote (constitutionally mandated Bodies may only be dissolved via amendment). (Article~\ref{const-art:regulatory-bodies}, \ref{const-art:regulatory-bodies:s-financial-regulation})
+  \item Define and adjust the mandate of each Regulatory Commons Body. (Article~\ref{const-art:regulatory-bodies}, \ref{const-art:regulatory-bodies:s-mandate-independence})
+  \item Pre-approve detailed emergency response protocols during normal times, for each predictable emergency category, designating lead and supporting Implementation Councils in advance. (Article~\ref{const-art:emergency-protocols}, \ref{const-art:emergency-protocols:s-pre-legislation-requirement})
+  \item Ratify Electoral Commons stratification-methodology changes and subsidiary exemption criteria. (Article~\ref{const-art:sortition-design}, \ref{const-art:sortition-design:s-stratification} and \ref{const-art:sortition-design:s-mandatory-service-civic})
+\end{itemize}
+
+\subsection{Economic}
+\begin{itemize}
+  \item Lower (never raise) the wage ratio cap on cooperative compensation. (Article~\ref{const-art:worker-coop-sector}, \ref{const-art:worker-coop-sector:s-wage-ratio-cap})
+  \item Set or raise (never lower) essential-sector minimum compensation floors, both for cooperative-organized and Commons-institution essential labor. (Article~\ref{const-art:essential-labor}, \ref{const-art:essential-labor:s-essential-labor})
+  \item Raise cooperative surplus contribution rates by simple majority; lower them only by supermajority with a published funding-impact assessment (and never while a structural-dependence finding from the preceding two years is outstanding). (Article~\ref{const-art:finance-money}, \ref{const-art:finance-money:s-cooperative-surplus-contributions})
+  \item Raise essential-sector training stipends above the statutory floor, including in response to pipeline monitoring triggers. (Article~\ref{const-art:essential-labor}, \ref{const-art:essential-labor:s-training-pipelines})
+  \item Expand incentive benefits beyond a published Incentive Escalation Schedule, or revise the Schedule itself for future shortfalls (may not reduce benefits already active for persons currently serving). (Article~\ref{const-art:essential-labor}, \ref{const-art:essential-labor:s-voluntary-service-incentives})
+  \item Lift any provisional or permanent financial prohibition by simple majority vote (the Legislature alone may create new categories of permitted financial activity; the Financial Regulatory Body may not). (Article~\ref{const-art:regulatory-bodies}, \ref{const-art:regulatory-bodies:s-financial-regulation})
+\end{itemize}
+
+\end{document}

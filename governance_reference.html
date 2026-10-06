@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commonwealth Governance Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f5f4f0;color:#1a1a18;padding:2rem 1rem;line-height:1.5}
+h1{font-size:20px;font-weight:500;margin-bottom:.25rem}
+.subtitle{font-size:13px;color:#5f5e5a;margin-bottom:1.5rem}
+.top-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem;align-items:center}
+.filter-label{font-size:12px;color:#5f5e5a;margin-right:4px}
+.pill{font-size:11px;padding:4px 10px;border-radius:20px;border:0.5px solid #b4b2a9;background:#fff;color:#5f5e5a;cursor:pointer;transition:background .15s,color .15s;font-family:'Inter',sans-serif}
+.pill.active{background:#1a1a18;color:#fff;border-color:#1a1a18}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1.25rem;font-size:11px;color:#5f5e5a}
+.legend-item{display:flex;align-items:center;gap:5px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;max-width:1200px}
+.card{border-radius:12px;border:0.5px solid #d3d1c7;padding:10px 12px;background:#fff;position:relative;cursor:pointer;transition:border-color .15s}
+.card:hover{border-color:#888780}
+.card:focus{outline:2px solid #185FA5;outline-offset:2px}
+.card.hidden{display:none}
+.card-title{font-size:13px;font-weight:500;color:#1a1a18;line-height:1.3;margin-bottom:6px;padding-right:20px}
+.tag-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.tag{font-size:10px;padding:2px 6px;border-radius:10px;font-weight:500}
+.tag-renew{background:#EAF3DE;color:#27500A}
+.tag-norenew{background:#FCEBEB;color:#791F1F}
+.tag-te{background:#E6F1FB;color:#185FA5}
+.te-dot{position:absolute;top:10px;right:10px;width:8px;height:8px;border-radius:50%;background:#185FA5;opacity:.85}
+.count-bar{display:flex;align-items:center;gap:6px;margin:4px 0}
+.count-pips{display:flex;gap:2px;flex-wrap:wrap}
+.pip{width:6px;height:6px;border-radius:1px;flex-shrink:0}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:100}
+.modal{background:#fff;border-radius:12px;border:0.5px solid #b4b2a9;padding:1.25rem;max-width:440px;width:90%;max-height:80vh;overflow-y:auto}
+.modal h3{font-size:15px;font-weight:500;margin-bottom:.75rem;color:#1a1a18}
+.modal .close-btn{margin-top:.75rem;font-size:12px;color:#5f5e5a;cursor:pointer;text-decoration:underline;display:inline-block}
+.modal .detail-row{display:flex;gap:6px;font-size:12px;margin-bottom:6px;align-items:flex-start;flex-direction:column}
+.modal .detail-label{color:#5f5e5a;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.modal .detail-val{color:#1a1a18;font-weight:500;font-size:13px}
+.modal .detail-text{color:#1a1a18;font-size:12px;line-height:1.6}
+.modal .detail-note{color:#5f5e5a;font-size:12px;line-height:1.6}
+.te-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#185FA5;padding:2px 6px;border-radius:10px;background:#E6F1FB;font-weight:500}
+.divider{height:0.5px;background:#d3d1c7;margin:.75rem 0}
+@media(prefers-color-scheme:dark){
+  body{background:#1a1a18;color:#e8e6de}
+  .card,.modal{background:#2c2c2a;border-color:#444441;color:#e8e6de}
+  .card-title,.modal h3,.modal .detail-val,.modal .detail-text{color:#e8e6de}
+  .pill{background:#2c2c2a;border-color:#5f5e5a;color:#b4b2a9}
+  .pill.active{background:#e8e6de;color:#1a1a18;border-color:#e8e6de}
+  .filter-label,.legend,.subtitle,.modal .detail-label,.modal .detail-note,.modal .close-btn{color:#888780}
+  .card:hover{border-color:#888780}
+  .legend-item{color:#888780}
+  .divider{background:#444441}
+}
+</style>
+</head>
+<body>
+<h1>Commonwealth Governance Reference</h1>
+<p class="subtitle">All governance bodies · Click any card for full details · Blue dot = logs to Transparency Engine</p>
+<!-- Article/Section citations verified against current source, 2026-08-28. Size/term/notes fields updated only where session changes touched them; other fields carried forward from prior version pending a full re-verification pass. -->
+
+<div class="top-bar">
+  <span class="filter-label">Filter by tier:</span>
+  <button class="pill active" onclick="filter('all',this)">All</button>
+  <button class="pill" onclick="filter('tier-1',this)">Foundational</button>
+  <button class="pill" onclick="filter('tier-2',this)">Legislative</button>
+  <button class="pill" onclick="filter('tier-3',this)">Judicial</button>
+  <button class="pill" onclick="filter('tier-4',this)">Executive</button>
+  <button class="pill" onclick="filter('tier-5',this)">Regulatory</button>
+  <button class="pill" onclick="filter('tier-6',this)">Oversight</button>
+  <button class="pill" onclick="filter('tier-7',this)">Advisory/Technical</button>
+  <button class="pill" onclick="filter('te',this)">🔵 Logs to TE</button>
+</div>
+
+<div class="legend">
+  <span class="legend-item"><span class="swatch" style="background:#534AB7"></span>Foundational</span>
+  <span class="legend-item"><span class="swatch" style="background:#0F6E56"></span>Legislative</span>
+  <span class="legend-item"><span class="swatch" style="background:#993C1D"></span>Judicial</span>
+  <span class="legend-item"><span class="swatch" style="background:#185FA5"></span>Executive</span>
+  <span class="legend-item"><span class="swatch" style="background:#BA7517"></span>Regulatory</span>
+  <span class="legend-item"><span class="swatch" style="background:#993556"></span>Oversight</span>
+  <span class="legend-item"><span class="swatch" style="background:#5F5E5A"></span>Advisory/Technical</span>
+  <span class="legend-item"><span class="swatch" style="width:8px;height:8px;border-radius:50%;background:#185FA5"></span>Logs to Transparency Engine</span>
+  <span class="legend-item"><span class="swatch" style="background:#639922"></span>Renewable</span>
+  <span class="legend-item"><span class="swatch" style="background:#A32D2D"></span>Non-renewable</span>
+</div>
+
+<div class="grid" id="grid"></div>
+<div id="modal-container"></div>
+
+<script>
+const bodies = [
+  {name:"Sortition Legislature",tier:"tier-2",size:600,term:"3 years (staggered, 200/yr)",renew:false,te:true,article:"Article IX",accountability:"Citizen Oversight Panel embedded within; Constitutional Court review; Civic Initiative Infrastructure (5% petition triggers reconsideration).",role:"Primary national legislative body. Sets policy, ratifies treaties, authorizes budgets, creates and dissolves Implementation Councils.",notes:"Non-renewability is absolute. Mandatory civic duty with hardship exemptions. Expert Advisory Corps briefs but does not vote."},
+  {name:"Constitutional Court",tier:"tier-3",size:21,term:"7 years (staggered)",renew:false,te:true,article:"Article X",accountability:"Meta-Review Chamber reviews all decisions; 5% civic petition triggers de novo re-examination; Constitutional Court cannot review itself.",role:"Reviews legislation for constitutional compliance, resolves inter-institutional conflicts, interprets foundational principles.",notes:"Qualification via Qualification Commons blind evaluation. Supermajority of 14/21 to override legislation. Hard limits require 14/21 + legislative supermajority + Meta-Review + referendum."},
+  {name:"Meta-Review Chamber",tier:"tier-3",size:30,term:"1 year (rotating)",renew:false,te:true,article:"Article X, Section 3",accountability:"Itself subject to Citizen Oversight Panel; cannot overturn Court decisions, only compel reconsideration.",role:"Reviews all Constitutional Court decisions for quality of reasoning and consistency. Publishes public assessments. May trigger re-hearing by supermajority.",notes:"Annual rotation ensures fresh perspectives on every cohort of decisions."},
+  {name:"Electoral Commons",tier:"tier-7",size:12,term:"2 years (staggered)",renew:false,te:true,article:"Article VII, Section 5",accountability:"Cannot set rules governing its own composition — those are set by the Constitution and Sortition Legislature. Citizen Oversight Panel embedded.",role:"Maintains civic membership roll, conducts all sortition selections, verifies eligibility, manages stratification, administers Exemption Review Panel.",notes:"Selection algorithm is open-source and publicly auditable. Governing board of 12; administrative staff governed separately."},
+  {name:"Qualification Commons",tier:"tier-7",size:9,term:"Founding terms; then domain-pool-driven",renew:false,te:true,article:"Article VII, Section 8",accountability:"Appeals to Constitutional Court on rubric constitutionality only. Citizen Oversight Panel embedded.",role:"Maintains qualification pools for all bodies requiring demonstrated competence. Rubric Body of 9 designs and revises scoring rubrics by supermajority + public comment.",notes:"Blind evaluation of demonstrated work — credentials neither required nor considered. Bootstrapped via Constitutional Assembly designees at founding."},
+  {name:"Exemption Review Panel",tier:"tier-7",size:9,term:"2 years (staggered)",renew:true,te:true,article:"Article VII, Section 2",accountability:"Sits within Electoral Commons; decisions appealable to Constitutional Court on constitutional grounds only.",role:"Reviews disputed sortition service hardship exemption certifications. Cannot expand or narrow constitutional exemption categories.",notes:"Renewable — narrow scope, fully transparent, subordinate to sortition oversight. Reconfirmation mechanism applies."},
+  {name:"Implementation Councils",tier:"tier-4",size:"1 Director + staff",term:"4 years (Directors)",renew:false,te:true,article:"Article XVI",accountability:"Citizen Oversight Panel embedded in each; Coordination Assembly for cross-domain flagging; Sortition Legislature sets mandates; cannot define own scope.",role:"Translate legislative decisions into operational reality across domains: healthcare, education, food systems, infrastructure, environment, housing, justice, economic coordination.",notes:"Directors selected via Qualification Commons. No Director holds authority outside their domain. Domain list is illustrative, not exhaustive."},
+  {name:"Coordination Assembly",tier:"tier-4",size:"1 rep per Council",term:"1 year (rotating rep)",renew:false,te:true,article:"Article XVI, Section 4",accountability:"No binding authority — advisory to Legislature only. Fully transparent through Transparency Engine.",role:"Monthly public meeting of Implementation Council representatives to flag cross-domain conflicts and propose solutions to Legislature.",notes:"Distinct from Minimal Coordination Council. Cannot make binding decisions."},
+  {name:"Residual Coordination Council",tier:"tier-4",size:5,term:"2 years",renew:false,te:true,article:"Article XVIII, Section 1",accountability:"Unanimity required for all decisions. Cannot act outside three defined functions. Citizen Oversight Panel embedded.",role:"Selected from former Implementation Council Directors, former Foreign Relations Council members, and former Constitutional Court justices who have completed terms in good standing. Performs narrow fallback coordination functions only.",notes:"Decisions require unanimity of all five. If the eligible pool is insufficient, Electoral Commons runs emergency sortition from all former governance members; if still insufficient, the Constitutional Court designates temporary coordinators for the legislative-convening function only — this expires automatically when the Legislature convenes."},
+  {name:"Emergency Threshold Verification Body",tier:"tier-4",size:16,term:"4 years (staggered)",renew:false,te:true,article:"Article XVII, Section 2",accountability:"Cannot be instructed to withhold or delay threshold determinations. Citizen Oversight Panel embedded.",role:"Monitors objective metrics for each emergency protocol category; publicly reports threshold crossings; determines Material Sufficiency Floor impact for novel cross-domain emergencies.",notes:"Operates in continuous session. Makes no policy decisions. Methodology for cross-domain impact determination reviewed every 5 years."},
+  {name:"Foreign Relations Council",tier:"tier-4",size:12,term:"3 years (staggered, 4/yr)",renew:false,te:true,article:"Article XXVIII",accountability:"Same conflict of interest and post-service prohibitions as Sortition Legislature. Treaty Review Body reviews all agreements before ratification.",role:"Manages diplomatic relationships, negotiates international agreements for legislative ratification, holds substantive primacy in multilateral settings.",notes:"Qualification via Qualification Commons. Cannot conclude binding agreements independently. Sensitive negotiations may be withheld up to 1 year."},
+  {name:"Treaty Review Body",tier:"tier-4",size:"variable (staggered)",term:"4 years",renew:false,te:true,article:"Article XXIX, Section 6",accountability:"Reports publicly; may block ratification regardless of legislative majority.",role:"Reviews all proposed international agreements for compliance with anti-imperialism principle and collective defense provisions.",notes:"International law experts from Qualification Commons pool. May block any agreement creating dependency or requiring prohibited offensive capability."},
+  {name:"Defensive Posture Review Body",tier:"tier-5",size:15,term:"4 years (staggered)",renew:false,te:true,article:"Article XXX, Section 8",accountability:"May refer findings to Constitutional Court. Subject to defense sector exclusion under Article XIII.",role:"Mandatory 4-year public review of military force structure, doctrine, procurement, and capability. Administers Capability Classification Protocol.",notes:"Defense contractors and recent military employees excluded from qualification pool. Classifies capabilities as defensive-primary, dual-use, or offensive-primary (last is prohibited)."},
+  {name:"Nuclear Use Authorization Council",tier:"tier-4",size:7,term:"2 years (staggered)",renew:false,te:true,article:"Article XXX, Section 6",accountability:"All members publicly identified. Recallable by legislative supermajority. Full transparency requirements apply.",role:"Sole nuclear launch authorization. 5/7 for verified incoming attack. Unanimity + Constitutional Court review for any ambiguous scenario. First use constitutionally prohibited.",notes:"Operates in continuous session with no other governance role. Cannot authorize first use under any circumstances."},
+  {name:"Regulatory Commons Bodies",tier:"tier-5",size:15,term:"5 years (staggered)",renew:false,te:true,article:"Article XXVII",accountability:"Mandate defined by Legislature. Appeals only to Constitutional Court on mandate scope. Civic Initiative Infrastructure (4% petition triggers mandate review).",role:"Environmental Regulatory Body; Public Health & Safety Regulatory Body; Worker Safety Regulatory Body; Financial Regulatory Body; Competition Commons Body. Independent regulatory authority within legislative mandates.",notes:"Fifteen members per Body: five Democratic Stream, five Expert Stream (Qualification Commons), five Affected Community Stream. Legislature may set a larger total by supermajority, provided streams remain equal. Sector-conflicted persons excluded from all three streams."},
+  {name:"Citizen Oversight Panels",tier:"tier-6",size:12,term:"1 year (rotating)",renew:false,te:true,article:"Article XII",accountability:"Cannot make binding decisions — communicative and investigative power only. Cross-Panel Coordination Body shares patterns quarterly.",role:"Embedded in every governance body and Implementation Council. Full access to all internal deliberations, communications, and decisions. May trigger investigations and petition Constitutional Court.",notes:"One panel per body. The panel embedded in the Sortition Legislature has standing to petition for bad-faith removal. Panels embedded in security bodies have access to withheld content."},
+  {name:"Cross-Panel Coordination Body",tier:"tier-6",size:"1 rep per panel",term:"Rotating (per-panel cycle)",renew:false,te:true,article:"Article XII, Section 4",accountability:"No independent authority. No binding decisions. Fully transparent.",role:"Quarterly meeting of one rotating representative from each active Citizen Oversight Panel to share observed patterns across governance bodies.",notes:"Exists to surface systemic patterns that individual panels might not see in isolation."},
+  {name:"Transparency Engine Oversight Body",tier:"tier-7",size:9,term:"2 years",renew:true,te:true,article:"Article XIII, Section 2",accountability:"Cannot remove constitutionally mandated logging categories — may only add. Reconfirmation mechanism applies.",role:"Maintains and interprets Transparency Engine operational standards. May add logging categories. Joint cooperation agreement with Civic Initiative Infrastructure oversight.",notes:"Renewable — narrow scope, technical, subordinate oversight. Reconfirmation every 5 years or earlier via 3% civic petition."},
+  {name:"Civic Initiative Infrastructure",tier:"tier-6",size:9,term:"3 years (staggered)",renew:true,te:true,article:"Article XIV",accountability:"Cannot alter intervention thresholds or triggered consequences — constitutionally fixed. Cooperation agreement with Transparency Engine Oversight Body.",role:"Provides verified channels for civic members to trigger constitutional interventions: Court re-examination (5%), early reconfirmation (3%), legislative reconsideration (5%), regulatory mandate review (4%), emergency post-hoc review (3%).",notes:"Operates as receive counterpart to Transparency Engine's broadcast function. Signatories private during petition; disclosed after cooling period."},
+  {name:"Constitutional Assembly",tier:"tier-1",size:1000,term:"2 years (convened every 25 years)",renew:false,te:true,article:"Article XI",accountability:"Cannot abolish the three hard limits. 80% internal threshold + 60% national direct vote to change foundational principles.",role:"Reviews every foundational principle every 25 years. May reaffirm, revise, or repeal any provision except the three hard limits.",notes:"Also convened as Extraordinary Assembly (Article XI, Section 4) if Court, Citizen Oversight Panels, and Transparency Engine independently identify systemic failure. The Panels speak jointly for this purpose only via a two-thirds vote of the Cross-Panel Coordination Body; the Transparency Engine's signal is tied to its Anomaly Detection thresholds."},
+  {name:"Expert Advisory Corps",tier:"tier-7",size:"variable (staggered)",term:"3 years",renew:false,te:true,article:"Article IX, Section 3",accountability:"No independent authority. Forbidden from lobbying and post-service employment with interested entities.",role:"Briefs Sortition Legislature from multiple perspectives before legislation. Selected by sortition from Qualification Commons domain pools.",notes:"Informs only — no vote, no policy-making role. Domain specialists rotated to prevent capture."},
+  {name:"Minority Impact Assessment Body",tier:"tier-6",size:21,term:"3 years (staggered)",renew:false,te:true,article:"Article VIII, Section 4",accountability:"Advisory but mandatory — no decision takes effect without completed assessment and published response.",role:"Assesses distributional impacts of all governance decisions before they take effect. Stratified to include representation from historically marginalized communities.",notes:"Mandatory in procedure, not binding in outcome. Legislature must formally respond to every assessment."},
+  {name:"Security Investigation Governing Board",tier:"tier-6",size:9,term:"3 years (staggered)",renew:false,te:true,article:"Article XXXIII, Section 4",accountability:"Cannot conduct investigations itself — authorizes and reviews only. Staff Director renewable subject to reconfirmation. Citizen Oversight Panel has full access including withheld content.",role:"Sets investigation priorities, authorizes opening/closing investigations by majority vote, reviews all findings before submission to Security Enforcement Review Panel.",notes:"Board attempts to direct investigative tactics (rather than priorities) are automatically logged as potential constitutional violations."},
+  {name:"Security Enforcement Review Panel",tier:"tier-6",size:9,term:"2 years (staggered)",renew:false,te:true,article:"Article XXXIII, Section 6",accountability:"Cannot conduct investigations — receives findings only. All decisions logged in real time.",role:"Independently authorizes or declines specific enforcement actions submitted by the Security Investigation Governing Board. 5/9 required for authorization.",notes:"Strict separation from investigation function — no body holds both identification and action power."},
+  {name:"Justice Standards Council",tier:"tier-4",size:"Director + staff",term:"4 years (Director)",renew:false,te:true,article:"Article XXXIV, Section 4",accountability:"Citizen Oversight Panels have full unrestricted access to secure facilities. Minimum standards may be raised but not lowered.",role:"Sets and maintains minimum standards for restorative justice processes. Governs secure facilities. Conducts annual public assessment of restorative justice implementation.",notes:"Does not adjudicate individual cases. Escalation mechanism allows survivors to trigger regional review if local process is compromised."},
+  {name:"Reparations Design Council",tier:"tier-1",size:"Majority affected community",term:"Ongoing until obligation fulfilled",renew:false,te:true,article:"Article XXXVI, Section 1",accountability:"Commonwealth cannot unilaterally declare obligation complete — that authority belongs to the Council with affected community majority.",role:"Produces Harm Assessment (year 2), Form and Scale Recommendation (year 3), governs annual reparative allocations. Land-based remedies within scope.",notes:"Legislature may not reduce recommended scale by more than 20% without supermajority + Constitutional Court review. Mandatory 10-year gap closure review with automatic escalation. Initial members are nominated by affected communities and administratively coordinated (not selected) by the Electoral Commons."},
+  {name:"Land Back Negotiation Office",tier:"tier-1",size:"Co-determined",term:"Ongoing until agreements complete",renew:false,te:true,article:"Article XXXV, Section 1",accountability:"Constitutional Assembly mandatory review at year 7. Constitutional Court may impose remedial measures if Commonwealth fails good faith. Jointly published annual progress reports.",role:"Jointly structured by Commonwealth and indigenous nations. Manages land sovereignty negotiations. Where sovereignty is exercised, land exits Commonwealth territory entirely.",notes:"Mandate, staffing, and budget co-determined by preliminary convening. If the convening hasn't reached agreement within the one-year establishment deadline, the Electoral Commons convenes a bare interim Office to keep negotiations alive, without prejudice to the permanent structure ultimately adopted."},
+  {name:"National Cooperative Standards Body",tier:"tier-5",size:"sortition board",term:"Staggered",renew:false,te:true,article:"Article XX, Section 1",accountability:"Threshold determinations subject to simple legislative majority override.",role:"Sets minimum size threshold above which enterprises must be organized as worker cooperatives.",notes:"Governed by sortition board from cooperative sector and labor organizations, accountable to Sortition Legislature."},
+  {name:"Monetary Authority",tier:"tier-4",size:"governed body",term:"Accountable to Legislature",renew:false,te:true,article:"Article XXIII, Section 3",accountability:"Accountable to Sortition Legislature. Required to report potentially prohibited financial flows to Financial Regulatory Body.",role:"Sole money creation authority. Manages money supply to serve Material Sufficiency Floor and cooperative sector stability.",notes:"A structural-dependence finding now triggers an automatic minimum contribution-rate increase (not just a report), effective unless the Legislature blocks it by the same supermajority required to lower rates."},
+  {name:"Cooperative Development Bank",tier:"tier-4",size:15,term:"5 years (staggered, non-renewable)",renew:false,te:true,article:"Article XX, Section 6",accountability:"Accountable to Sortition Legislature. Peer Panels selected by sortition. Cannot decline solely on basis of collateral absence.",role:"Startup financing and working capital at cost. Development Partnership process (6–12 months). Tiered lending including Commons-backstop grants. Ongoing support relationships.",notes:"Peer Panels selected by sortition from established cooperatives in adjacent sectors. Bootstrapped via Constitutional Assembly designees at founding."},
+];
+
+const tierLabels={'tier-1':'Foundational','tier-2':'Legislative','tier-3':'Judicial','tier-4':'Executive','tier-5':'Regulatory','tier-6':'Oversight','tier-7':'Advisory/Technical'};
+const tierColors={'tier-1':'#534AB7','tier-2':'#0F6E56','tier-3':'#993C1D','tier-4':'#185FA5','tier-5':'#BA7517','tier-6':'#993556','tier-7':'#5F5E5A'};
+
+function pipRow(n,color){
+  const MAX=30;
+  if(typeof n==='string') return `<span style="font-size:11px;color:${color};font-weight:500">${n}</span>`;
+  const show=Math.min(n,MAX);
+  let html='<div class="count-pips">';
+  for(let i=0;i<show;i++) html+=`<span class="pip" style="background:${color}"></span>`;
+  if(n>MAX) html+=`<span style="font-size:10px;color:#888780;margin-left:2px">+${n-MAX}</span>`;
+  return html+'</div>';
+}
+
+function renderGrid(filterKey){
+  const grid=document.getElementById('grid');
+  grid.innerHTML='';
+  bodies.forEach(b=>{
+    const show=filterKey==='all'||filterKey===b.tier||(filterKey==='te'&&b.te);
+    const color=tierColors[b.tier];
+    const card=document.createElement('div');
+    card.className='card'+(show?'':' hidden');
+    card.setAttribute('role','button');
+    card.setAttribute('tabindex','0');
+    card.setAttribute('aria-label',b.name+' — click for details');
+    card.innerHTML=`
+      ${b.te?'<span class="te-dot" title="Logs to Transparency Engine"></span>':''}
+      <div class="card-title">${b.name}</div>
+      <div class="count-bar">
+        <span style="font-size:10px;color:#888780;min-width:36px">${typeof b.size==='number'?b.size:'~'}</span>
+        ${pipRow(b.size,color)}
+      </div>
+      <div style="font-size:11px;color:#888780;margin:4px 0 0">${b.term}</div>
+      <div class="tag-row">
+        <span class="tag" style="background:${color}18;color:${color}">${tierLabels[b.tier]}</span>
+        <span class="tag ${b.renew?'tag-renew':'tag-norenew'}">${b.renew?'Renewable':'Non-renewable'}</span>
+        ${b.te?'<span class="tag tag-te">Logs to TE</span>':''}
+      </div>`;
+    card.addEventListener('click',()=>openModal(b,color));
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openModal(b,color);});
+    grid.appendChild(card);
+  });
+}
+
+function openModal(b,color){
+  const mc=document.getElementById('modal-container');
+  mc.innerHTML=`
+    <div class="modal-bg" onclick="closeModal(event)" role="dialog" aria-modal="true" aria-label="${b.name} details">
+      <div class="modal">
+        <h3>${b.name}</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.75rem">
+          <span class="tag" style="background:${color}18;color:${color}">${tierLabels[b.tier]}</span>
+          <span class="tag ${b.renew?'tag-renew':'tag-norenew'}">${b.renew?'Renewable':'Non-renewable'}</span>
+          ${b.te?'<span class="te-badge">🔵 Logs to Transparency Engine</span>':''}
+        </div>
+        <div class="detail-row"><span class="detail-label">Article</span><span class="detail-val">${b.article}</span></div>
+        <div class="detail-row"><span class="detail-label">Size</span><span class="detail-val">${b.size}</span></div>
+        <div class="detail-row"><span class="detail-label">Term</span><span class="detail-val">${b.term}</span></div>
+        <div class="detail-row"><span class="detail-label">Renewability</span><span class="detail-val">${b.renew?'Renewable (reconfirmation mechanism applies)':'Non-renewable'}</span></div>
+        <div class="divider"></div>
+        <div class="detail-row"><span class="detail-label">Role</span><span class="detail-text">${b.role}</span></div>
+        <div class="detail-row"><span class="detail-label">Accountability</span><span class="detail-text">${b.accountability}</span></div>
+        ${b.notes?`<div class="detail-row"><span class="detail-label">Notes</span><span class="detail-note">${b.notes}</span></div>`:''}
+        <span class="close-btn" onclick="closeModal()" role="button" tabindex="0">Close</span>
+      </div>
+    </div>`;
+}
+
+function closeModal(e){
+  if(!e||e.target.classList.contains('modal-bg')||e.target.classList.contains('close-btn'))
+    document.getElementById('modal-container').innerHTML='';
+}
+
+function filter(key,btn){
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid(key);
+}
+
+renderGrid('all');
+</script>
+</body>
+</html>

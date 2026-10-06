@@ -49,7 +49,7 @@ The **Glossary** at the end of the full document defines every named governance 
 
 The **[legislature guide](legislature-guide.tex)** is a companion reference summarizing the Sortition Legislature's powers, procedures, and cross-references in one place, for readers who don't want to trace them across the full document.
 
-The **[governance reference](commonwealth_governance_reference.html)** is an interactive HTML file providing a visual, filterable overview of all thirty governance bodies - their size, term lengths, renewability, and relationship to the Transparency Engine. Open it directly in a browser; no server required.
+The **[governance reference](governance_reference.html)** is an interactive HTML file providing a visual, filterable overview of all thirty governance bodies - their size, term lengths, renewability, and relationship to the Transparency Engine. Open it directly in a browser; no server required.
 
 The full source is LaTeX (`main.tex`, which pulls in `title-01.tex` through `title-12.tex`, `frontmatter.tex`, `backmatter.tex`, `macros.tex`, and `glossary-entries.tex`). A compiled PDF is included in each release for readers who don't want to build it themselves.
 

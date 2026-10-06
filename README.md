@@ -3,7 +3,7 @@
 ---
 ## What This Is
 
-This is a draft constitution for a hypothetical commonwealth, submitted for open public deliberation and revision. Every institutional mechanism, right, and structural choice has been determined on principled grounds and is open to challenge on the same terms.
+This is a draft constitution for a hypothetical commonwealth.
 
 The constitution is founded on a single governing principle:
 

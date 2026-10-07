@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# LaTeX build artifacts
+main.aux
+main.glg
+main.glo
+main.gls
+main.ist
+main.log
+main.toc
+main.out

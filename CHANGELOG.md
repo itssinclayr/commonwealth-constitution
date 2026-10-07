@@ -66,11 +66,7 @@ For significant changes — especially those that touch foundational principles 
 
 ```
 ### Changed
-- Article XXIX (formerly Article XXVIII): Revised land lease system from annual fee model
-  to transfer-fee-on-sale model, following analysis of China's land lease experience and
-  Georgist land value theory. Annual charges create a form of ongoing rent inconsistent
-  with the anti-domination principle; transfer fees capture community-generated land value
-  without imposing perpetual obligations on leaseholders.
+- Article XXIX: Revised land lease system from annual fee model to transfer-fee-on-sale model, following analysis of China's land lease experience and Georgist land value theory. Annual charges create a form of ongoing rent inconsistent with the anti-domination principle; transfer fees capture community-generated land value without imposing perpetual obligations on leaseholders.
 ```
 
 This keeps the reasoning attached to the change rather than buried in commit messages.
@@ -81,6 +77,11 @@ This keeps the reasoning attached to the change rather than buried in commit mes
 
 ---
 
+## [v0.1.1] - 2026-10-07
+
+### Changed
+- Article X: Revised Constitutional Court composition to twenty-one judges at seven year terms, to allow clean staggering.
+- Glossary: Updated Constitutional Court entry in Glossary to reflect change
 ## [v0.1.0] – 2026-09-04
 
 *Foundational public release. Submitted for peer review and deliberation.*

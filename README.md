@@ -97,7 +97,7 @@ The version number follows a simple convention:
 - The second number is the **minor version** - incremented when a structural or institutional provision changes
 - The third number is the **patch version** - incremented for drafting, clarification, or cross-reference corrections
 
-Current version: **v0.1.0** *(pre-ratification draft)*
+Current version: **v0.1.1** 
 
 ---
 ## Philosophical Grounding

@@ -51,7 +51,7 @@ The **[legislature guide](legislature-guide.tex)** is a companion reference summ
 
 The **[governance reference](governance_reference.html)** is an interactive HTML file providing a visual, filterable overview of all thirty governance bodies - their size, term lengths, renewability, and relationship to the Transparency Engine. Open it directly in a browser; no server required.
 
-The full source is LaTeX (`main.tex`, which pulls in `title-01.tex` through `title-12.tex`, `frontmatter.tex`, `backmatter.tex`, `macros.tex`, and `glossary-entries.tex`). A **[compiled PDF](commonwealth-constitution-v0.1.1.pdf)** is included in each release for readers who don't want to build it themselves.
+The full source is LaTeX (`main.tex`, which pulls in `title-01.tex` through `title-12.tex`, `frontmatter.tex`, `backmatter.tex`, `macros.tex`, and `glossary-entries.tex`). A **[compiled PDF](main.pdf)** is included in each release for readers who don't want to build it themselves.
 
 ---
 ## What I'm Looking For

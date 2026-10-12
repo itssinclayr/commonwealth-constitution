@@ -49,9 +49,9 @@ The **Glossary** at the end of the full document defines every named governance 
 
 The **[legislature guide](legislature-guide.tex)** is a companion reference summarizing the Sortition Legislature's powers, procedures, and cross-references in one place, for readers who don't want to trace them across the full document.
 
-The **[governance reference](governance_reference.html)** is an interactive HTML file providing a visual, filterable overview of all thirty governance bodies - their size, term lengths, renewability, and relationship to the Transparency Engine. Open it directly in a browser; no server required.
+The **[governance reference](reference/governance_reference.html)** is an interactive HTML file providing a visual, filterable overview of all thirty governance bodies - their size, term lengths, renewability, and relationship to the Transparency Engine. Open it directly in a browser; no server required.
 
-The full source is LaTeX (`main.tex`, which pulls in `title-01.tex` through `title-12.tex`, `frontmatter.tex`, `backmatter.tex`, `macros.tex`, and `glossary-entries.tex`). A **[compiled PDF](commonwealth-constitution-v0.1.1.pdf)** is included in each release for readers who don't want to build it themselves.
+The full source is LaTeX (`main.tex`, which pulls in `titles/title-01.tex` through `titles/title-12.tex`, `frontmatter.tex`, `backmatter.tex`, `macros.tex`, and `glossary-entries.tex`). A **[compiled PDF](main.pdf)** is included in each release for readers who don't want to build it themselves.
 
 ---
 ## What I'm Looking For
@@ -82,7 +82,7 @@ Open a [GitHub Issue](../../issues). Use the issue title to briefly describe the
 - `other-critique` - any other issues not covered by the above categories (use sparingly)
 
 **To propose a specific textual amendment:**
-Open a Pull Request against the relevant title source file - e.g. `title-06.tex` for the economic articles. Reference the Article and Section you're changing in the PR title (e.g. "Article XX, Section 4: ..."), since Article numbers are continuous across the whole document rather than restarting per Title. In the PR description, explain what you are changing and why, with reference to the foundational principle your change advances or protects. If your change affects a governance body's size, term, or composition, please also check `glossary-entries.tex` and `commonwealth_governance_reference.html` for matching entries that need updating alongside it.
+Open a Pull Request against the relevant title source file - e.g. `titles/title-06.tex` for the economic articles. Reference the Article and Section you're changing in the PR title (e.g. "Article XX, Section 4: ..."), since Article numbers are continuous across the whole document rather than restarting per Title. In the PR description, explain what you are changing and why, with reference to the foundational principle your change advances or protects. If your change affects a governance body's size, term, or composition, please also check `glossary-entries.tex` and `reference/commonwealth_governance_reference.html` for matching entries that need updating alongside it.
 
 **To propose a wholesale alternative approach to a section:**
 Fork the repository and develop your alternative. Open an issue linking to your fork so others can engage with both versions.
@@ -121,6 +121,6 @@ This retention of wages, money, and market coordination places the Commonwealth 
 This repository uses two licenses, since it contains two different kinds of work. Both were chosen deliberately to match the document's own economics:
 
 - **The constitutional text, glossary, front and back matter, legislative guide, and all other written documentation** are licensed under the **Peer Production License** (PPL, sometimes called "copyfarleft"). Anyone may share, adapt, and translate this work. Commercial use is permitted only for worker-owned businesses and collectives that distribute financial gain among their worker-owners; commercial use by a conventional privately-owned business is not permitted under this license.
-- **The code in this repository** - the economic simulation (`commonwealth_sim.py`, `run_and_plot.py`), the interactive dashboard (`CommonwealthDashboard.jsx`), and the governance reference (`governance_reference.html`) - is licensed under the **Anti-Capitalist Software License** (ACSL), which restricts use in equivalent terms: free for individuals, non-profits, educational institutions, and organizations where ownership and labor are the same people.
+- **The code in this repository** - the economic simulation (`simulation/commonwealth_sim.py`, `simulation/run_and_plot.py`), the interactive dashboard (`simulation/CommonwealthDashboard.jsx`), and the governance reference (`reference/governance_reference.html`) - is licensed under the **Anti-Capitalist Software License** (ACSL), which restricts use in equivalent terms: free for individuals, non-profits, educational institutions, and organizations where ownership and labor are the same people.
 
 I'm aware neither of these is a standard, widely-recognized license. They won't be auto-detected by GitHub, and "non-commercial" / "worker-owned" terms have not been tested in court. They're also difficult for an individual maintainer to enforce in practice. But a license restricting extractive commercial use is a more accurate expression of this project's values than a permissive one would be. 
